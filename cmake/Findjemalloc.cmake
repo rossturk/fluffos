@@ -12,19 +12,10 @@ find_path(JEMALLOC_INCLUDE_DIR
         HINTS ${PC_JEMALLOC_INCLUDE_DIRS}
         )
 
-# Force using static library
-if (NOT WIN32)
 find_library(JEMALLOC_LIBRARY
-        NAMES ${CMAKE_FIND_LIBRARY_PREFIXES}jemalloc_pic${CMAKE_STATIC_LIBRARY_SUFFIX}
-        ${CMAKE_FIND_LIBRARY_PREFIXES}jemalloc${CMAKE_FIND_LIBRARY_SUFFIXES}
+        NAMES jemalloc
         HINTS ${PC_JEMALLOC_LIBRARY_DIRS}
         )
-else()
-  find_library(JEMALLOC_LIBRARY
-          NAMES jemalloc
-          HINTS ${PC_JEMALLOC_LIBRARY_DIRS}
-          )
-endif()
 
 if(JEMALLOC_INCLUDE_DIR)
   set(_version_regex "^#define[ \t]+JEMALLOC_VERSION[ \t]+\"([^\"]+)\".*")
