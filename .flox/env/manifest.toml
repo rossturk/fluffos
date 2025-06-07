@@ -1,0 +1,34 @@
+version = 1
+
+[install]
+cmake.pkg-path = "cmake"
+pkg-config.pkg-path = "pkg-config"
+libmysqlclient.pkg-path = "libmysqlclient"
+pcre.pkg-path = "pcre"
+libgcrypt.pkg-path = "libgcrypt"
+libevent.pkg-path = "libevent"
+openssl.pkg-path = "openssl"
+jemalloc.pkg-path = "jemalloc"
+icu.pkg-path = "icu"
+zlib.pkg-path = "zlib"
+bison.pkg-path = "bison"
+
+[hook]
+on-activate = '''
+export CMAKE_PREFIX_PATH="$FLOX_ENV"
+'''
+
+[build]
+fluffos.command = '''
+
+rm -rf build
+mkdir -p build && cd build
+
+cmake \
+  -DMYSQL_INCLUDE_DIR=$FLOX_ENV/include/mysql \
+  -DCMAKE_INSTALL_PREFIX="$out" \
+  ..
+
+make
+make install --prefix="$out"
+'''
