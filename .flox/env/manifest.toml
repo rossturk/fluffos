@@ -2,6 +2,7 @@ version = 1
 
 [install]
 cmake.pkg-path = "cmake"
+gnumake.pkg-path = "gnumake"
 pkg-config.pkg-path = "pkg-config"
 libmysqlclient.pkg-path = "libmysqlclient"
 pcre.pkg-path = "pcre"
@@ -13,13 +14,10 @@ icu.pkg-path = "icu"
 zlib.pkg-path = "zlib"
 bison.pkg-path = "bison"
 
-[hook]
-on-activate = '''
-export CMAKE_PREFIX_PATH="$FLOX_ENV"
-'''
-
 [build]
+fluffos.sandbox = "pure"
 fluffos.command = '''
+export CMAKE_PREFIX_PATH="$FLOX_ENV"
 
 rm -rf build
 mkdir -p build && cd build
@@ -29,6 +27,6 @@ cmake \
   -DCMAKE_INSTALL_PREFIX="$out" \
   ..
 
-make
-make install --prefix="$out"
+make -j$(nproc)
+make install
 '''

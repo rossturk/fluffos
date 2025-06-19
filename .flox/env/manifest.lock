@@ -9,6 +9,9 @@
       "cmake": {
         "pkg-path": "cmake"
       },
+      "gnumake": {
+        "pkg-path": "gnumake"
+      },
       "icu": {
         "pkg-path": "icu"
       },
@@ -37,13 +40,11 @@
         "pkg-path": "zlib"
       }
     },
-    "hook": {
-      "on-activate": "export CMAKE_PREFIX_PATH=\"$FLOX_ENV\"\n"
-    },
     "options": {},
     "build": {
       "fluffos": {
-        "command": "\nrm -rf build\nmkdir -p build && cd build\n\ncmake \\\n  -DMYSQL_INCLUDE_DIR=$FLOX_ENV/include/mysql \\\n  -DCMAKE_INSTALL_PREFIX=\"$out\" \\\n  ..\n\nmake\nmake install --prefix=\"$out\"\n"
+        "command": "export CMAKE_PREFIX_PATH=\"$FLOX_ENV\"\n\nrm -rf build\nmkdir -p build && cd build\n\ncmake \\\n  -DMYSQL_INCLUDE_DIR=$FLOX_ENV/include/mysql \\\n  -DCMAKE_INSTALL_PREFIX=\"$out\" \\\n  ..\n\nmake -j$(nproc)\nmake install\n",
+        "sandbox": "pure"
       }
     }
   },
@@ -285,6 +286,140 @@
       "outputs": {
         "debug": "/nix/store/6jgji8dva0n4d9l3yplabfa29j6hsjwf-cmake-3.29.6-debug",
         "out": "/nix/store/24gbi6mcw4c6jgzai9aaxx9qi2rxdb09-cmake-3.29.6"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "gnumake",
+      "broken": false,
+      "derivation": "/nix/store/pjh4liqklzjbzbj07rcl9sy62a5l1vvh-gnumake-4.4.1.drv",
+      "description": "Tool to control the generation of non-source files from sources",
+      "install_id": "gnumake",
+      "license": "GPL-3.0-or-later",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=807e9154dcb16384b1b765ebe9cd2bba2ac287fd",
+      "name": "gnumake-4.4.1",
+      "pname": "gnumake",
+      "rev": "807e9154dcb16384b1b765ebe9cd2bba2ac287fd",
+      "rev_count": 698755,
+      "rev_date": "2024-10-29T11:11:06Z",
+      "scrape_date": "2024-11-01T04:02:27Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "4.4.1",
+      "outputs_to_install": [
+        "man",
+        "out"
+      ],
+      "outputs": {
+        "info": "/nix/store/zh15911aagmnppcm5f1pv3jaqp1lcn88-gnumake-4.4.1-info",
+        "man": "/nix/store/rh9jd0cb2nffh6f98pi1cdi2iixca7i7-gnumake-4.4.1-man",
+        "out": "/nix/store/xqd18p6bfh63xgy6r27ryj43m05sygfd-gnumake-4.4.1"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "gnumake",
+      "broken": false,
+      "derivation": "/nix/store/snpksjwb47s10waa19pypbvjnplvz1dg-gnumake-4.4.1.drv",
+      "description": "Tool to control the generation of non-source files from sources",
+      "install_id": "gnumake",
+      "license": "GPL-3.0-or-later",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=807e9154dcb16384b1b765ebe9cd2bba2ac287fd",
+      "name": "gnumake-4.4.1",
+      "pname": "gnumake",
+      "rev": "807e9154dcb16384b1b765ebe9cd2bba2ac287fd",
+      "rev_count": 698755,
+      "rev_date": "2024-10-29T11:11:06Z",
+      "scrape_date": "2024-11-01T04:02:27Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "4.4.1",
+      "outputs_to_install": [
+        "man",
+        "out"
+      ],
+      "outputs": {
+        "debug": "/nix/store/kpa131lv51q4sy4156szlbnjkjbbl6wa-gnumake-4.4.1-debug",
+        "info": "/nix/store/gsxac0p40xmzdhj64y7587p7z1r0l5my-gnumake-4.4.1-info",
+        "man": "/nix/store/xg73m3ymam05ing6fiz336lv88x5iilb-gnumake-4.4.1-man",
+        "out": "/nix/store/7vavvidkcwpkcv7vl2k695w1sj3d0v6d-gnumake-4.4.1"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "gnumake",
+      "broken": false,
+      "derivation": "/nix/store/p9slhfi6p07w87srfnlla133g1fz4g96-gnumake-4.4.1.drv",
+      "description": "Tool to control the generation of non-source files from sources",
+      "install_id": "gnumake",
+      "license": "GPL-3.0-or-later",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=807e9154dcb16384b1b765ebe9cd2bba2ac287fd",
+      "name": "gnumake-4.4.1",
+      "pname": "gnumake",
+      "rev": "807e9154dcb16384b1b765ebe9cd2bba2ac287fd",
+      "rev_count": 698755,
+      "rev_date": "2024-10-29T11:11:06Z",
+      "scrape_date": "2024-11-01T04:02:27Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "4.4.1",
+      "outputs_to_install": [
+        "man",
+        "out"
+      ],
+      "outputs": {
+        "info": "/nix/store/v3wv3dyvqfyjjnibpd51hll279wgq7xr-gnumake-4.4.1-info",
+        "man": "/nix/store/rd7fdldb5rax7qfz9bm2xci86qkg41n4-gnumake-4.4.1-man",
+        "out": "/nix/store/1f90m5f11kfyyg198qblv1x7blycfvfd-gnumake-4.4.1"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "gnumake",
+      "broken": false,
+      "derivation": "/nix/store/jxcx4vdagv48d10anz94hr6k5nvz4ixl-gnumake-4.4.1.drv",
+      "description": "Tool to control the generation of non-source files from sources",
+      "install_id": "gnumake",
+      "license": "GPL-3.0-or-later",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=807e9154dcb16384b1b765ebe9cd2bba2ac287fd",
+      "name": "gnumake-4.4.1",
+      "pname": "gnumake",
+      "rev": "807e9154dcb16384b1b765ebe9cd2bba2ac287fd",
+      "rev_count": 698755,
+      "rev_date": "2024-10-29T11:11:06Z",
+      "scrape_date": "2024-11-01T04:02:27Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "4.4.1",
+      "outputs_to_install": [
+        "man",
+        "out"
+      ],
+      "outputs": {
+        "debug": "/nix/store/651fp76vcmw4kzrmpinszwkk6jn8d4y3-gnumake-4.4.1-debug",
+        "info": "/nix/store/00gsp1x5r22pkl8zszl7fgfknmshrqs9-gnumake-4.4.1-info",
+        "man": "/nix/store/pqfxsx89dr0pywim8cc18cgm67cld692-gnumake-4.4.1-man",
+        "out": "/nix/store/w44ahngg3y69rpq62f4agzl747y872as-gnumake-4.4.1"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
